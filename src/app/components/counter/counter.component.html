@@ -1,0 +1,41 @@
+<div id="black-curtain"></div>
+
+<div
+  id="counter"
+  [@shownHidden]="hasLimitTimeCome ? 'hiddenRight' : 'shown'"
+  class="w-screen h-screen"
+>
+  <video id="bg-video" autoplay="true" loop="true" class="fixed top-0 left-0 w-screen h-auto">
+    <source src="/bg-golden-particles.mp4">
+  </video>
+  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" id="content">
+    <div class="flex flex-col text-white">
+      <h3 class="text-center" [class.text-[64px]]="!hasMusicTimeCome" [class.text-[40px]]="hasMusicTimeCome">o novo ano chega em...</h3>
+      <h1 id="time-counter" [class.text-[144px]]="hasMusicTimeCome" [class.text-[256px]]="!hasMusicTimeCome"
+          class="font-mono font-bold leading-none text-center"></h1>
+    </div>
+    <div [@videoOnOff]="hasMusicTimeCome ? 'videoOn' : 'videoOff'"
+      id="canvas-container" class="w-fit h-[480px] overflow-y-hidden flex justify-center items-center relative w-[1024px]">
+      <canvas class="mx-auto" class="absolute top-1/2 -translate-y-1/2"></canvas>
+    </div>
+  </div>
+</div>
+
+<video
+  id="music-video" class="h-[680px] opacity-0 -z-10">
+  <source src="/rompendo-em-fe.mp4">
+</video>
+
+<div
+  class="fixed top-0 left-0 left-1/2 -translate-x-1/2 w-screen"
+  id="fireworks"
+  [@shownHidden]="hasLimitTimeCome ? 'shown' : 'hiddenLeft'">
+  <h1 class="font-bold text-[160px] text-center text-white fixed top-1/2 left-1/2 w-screen">Feliz ano novo!</h1>
+  <video id="fireworks-video"
+    autoplay="true"
+    loop="true">
+    <source src="/0_Fireworks_Celebration_1920x1080.mp4" type="video/mp4">
+  </video>
+</div>
+
+
